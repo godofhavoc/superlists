@@ -22,13 +22,18 @@
 <script>
 /*global $, test, equal */
 
-test("errors should be hidden on keypress", function() {
+/* test("errors should be hidden on keypress", function() {
 	$('input').trigger('keypress');
 	equal($('.has-error').is(':visible'), false);
+});*/
+
+test("errors not be hidden unless input is focused", function() {
+	equal($('.has-error').is(':visible'), true);
 });
 
-test("errors not be hidden unless there is a keypress", function() {
-	equal($('.has-error').is(':visible'), true);
+test("errors are hidden when clicked on input element", function() {
+	$('input').focus();
+	equal($('.has-error').is(':visible'), false);
 });
 
 </script>
